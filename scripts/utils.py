@@ -2,6 +2,7 @@
 
 import serial
 from enum import Enum
+import time
 
 ser = None
 
@@ -32,3 +33,6 @@ def __send_command(msg:str):
 
 def press(btn:Button):
     __send_command('Button %s\r\n' % btn.value)
+    time.sleep(0.05)
+    __send_command('Release\r\n')
+
