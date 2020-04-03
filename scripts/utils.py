@@ -46,8 +46,6 @@ def __send_command(data:int):
     data_binary = struct.pack('>B', data)
     ser.write(data_binary)
     msg_char_output = ser.read()
-    print(data_binary)
-    print(msg_char_output)
     assert data_binary == msg_char_output
 
 def press(btn):
