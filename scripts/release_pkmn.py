@@ -5,7 +5,7 @@ from utils import *
 def main():
     initialize_serial('COM3')
 
-    boxes_to_clear = 8
+    boxes_to_clear = 10
 
     for i in range(boxes_to_clear):
         for x in range(6):
