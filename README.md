@@ -1,25 +1,28 @@
-# Switch-Fightstick
-[![Thumbnail](https://i.imgur.com/cJLZUdhl.jpg)](https://twitter.com/ebith/status/954858876028907521)
-- [Xenoblade Chronicles 2](https://twitter.com/ebith/status/954858876028907521)
-- [Octopath Traveler](https://twitter.com/ebith/status/1079163336862818305)
-- [Animal Crossing: New Horizons](https://twitter.com/ebith/status/1242763638756134915)
+# Nintendo Switch Automation
 
-## Requirement
-- ATMega32U4 Board or see [shinyquagsire23/Switch-Fightstick's README](https://github.com/shinyquagsire23/Switch-Fightstick/blob/master/README.md)
-- USB to serial adapter
-- USB micro-b cable * 2
+## Summary
+
+Automate menial tasks on the Nintendo Switch with Arduino:
+
+[![Thumbnail](https://i.imgur.com/cJLZUdhl.jpg)](https://twitter.com/ebith/status/954858876028907521)
+
+This involves:
+  1. Using an Arduino to emulate a Nintendo Switch controller.
+  2. Controlling the fake controller via a python script on the PC.
+
+## Necessary Items
+- ATMega16U2 or ATMega32U4 board such as the Arduino UNO Rev3.
+- USB to serial adapter.
+- USB micro-b to USB c cable to connect Arduino to the Ninteno Switch.
+- USB A female to USB A male to connect USB to serial adapter to PC.
+- 3 male to male jumper cables.
 
 ## Usage
-[NintendoSwitchをPCから操作する - おいら屋ファクトリー](https://blog.feelmy.net/control-nintendo-switch-from-computer/)(in Japanese)
 
-### On MacOS
-```sh
-brew install avr-dude osx-cross/avr/avr-gcc
-git clone --recursive https://github.com/ebith/Switch-Fightstick.git
-cd Switch-Fightstick
-make
-avrdude -pm32u4 -cavr109 -D -P$(ls /dev/tty.usbmodem*) -b57600 -Uflash:w:Joystick.hex # need reset
-
-pip3 install pyserial
-./example/rapid-fire-a.py /dev/tty.usbserial*
-```
+1. Run `make` and flash Joystick.hex onto the Arduino.
+2. Connect the USB to serial GND to Arduino GND pin.
+3. Connect the USB to serial RXD to Arduino TX pin.
+4. Connect the USB to serial TXD to Arduino RX pin.
+5. Connect the USB to serial to the PC.
+6. Connect the Arduino to the Nintendo Switch.
+7. Run the python script to have the Arduino send controller input to the Ninteno Switch. See `scripts` for examples.

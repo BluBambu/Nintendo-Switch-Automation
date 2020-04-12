@@ -10,18 +10,7 @@ def main():
     for i in range(boxes_to_clear):
         for x in range(6):
             for y in range(5):
-                press(Button.A)
-                sleep(0.5)
-                press_rep(Hat.TOP, 2)
-                sleep(0.2)
-                press(Button.A)
-                sleep(1)
-                press(Hat.BOTTOM)
-                sleep(0.2)
-                press(Button.A)
-                sleep(1.5)
-                press(Button.A)
-                sleep(0.8)
+                sleep(0.1)
                 
                 if y is not 4:
                     press(Hat.BOTTOM)

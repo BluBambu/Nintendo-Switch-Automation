@@ -2,6 +2,7 @@
 
 from utils import *
 
+
 def main():
     initialize_serial('COM3')
 
